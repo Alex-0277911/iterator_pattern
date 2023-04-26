@@ -1,0 +1,28 @@
+@startuml
+set namespaceSeparator ::
+
+class "iterator_pattern::iterator_pattern.dart::Item" {
+  +String name
+  +double price
+}
+
+class "iterator_pattern::iterator_pattern.dart::ShoppingCart" {
+  -List<Item> _items
+  +Iterator<Item> iterator
+  +void addItem()
+}
+
+"dart::core::Iterable" <|-- "iterator_pattern::iterator_pattern.dart::ShoppingCart"
+
+class "iterator_pattern::iterator_pattern.dart::_ItemIterator" {
+  -int _currentIndex
+  -List<Item> _items
+  +Item current
+  +bool moveNext()
+}
+
+"iterator_pattern::iterator_pattern.dart::_ItemIterator" o-- "iterator_pattern::iterator_pattern.dart::Item"
+"dart::core::Iterator" <|-- "iterator_pattern::iterator_pattern.dart::_ItemIterator"
+
+
+@enduml
