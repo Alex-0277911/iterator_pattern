@@ -40,7 +40,7 @@ class _ItemIterator implements Iterator<Item> {
     }
   }
 
-  // Необхідна реалізація поточного методу Iterator
+  // Необхідна реалізація методу current Iterator
   @override
   Item get current => _items[_currentIndex - 1];
 }
@@ -57,7 +57,9 @@ void main() {
   // Обхід кошика за допомогою ітератора
   final iterator = cart.iterator;
   while (iterator.moveNext()) {
-    final item = iterator.current;
-    print("${item.name}: \$${item.price}");
+    // final item = iterator.current;
+    // print("${item.name}: \$${item.price}");
+    // final item = iterator.current;
+    print("${iterator.current.name}: \$${iterator.current.price}");
   }
 }
